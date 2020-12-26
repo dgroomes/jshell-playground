@@ -33,7 +33,7 @@ Some highlights from the JEP page include:
 
 NOTE: this was developed on macOS.
 
-1. Use Java 14
+1. Use Java 15
 1. Execute `./build.sh` to compile the source code 
 1. Execute `./run-main.sh` to run the program (i.e. the `main` method). But... this isn't what we really want. We want
    to use `jshell`! See the next step.

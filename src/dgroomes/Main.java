@@ -25,7 +25,7 @@ public class Main {
     public static void main(String[] args) throws JsonProcessingException {
         log.warn("""
                 Here is a typical example of writing exploratory code inside of a `public static void main` method. In
-                it, we explore the Jackson library and experiment with using the ObjectMapper with Java 14's new 
+                it, we explore the Jackson library and experiment with using the ObjectMapper with Java 15's new 
                 "Records" language feature. This approach works fine, but it requires a full re-build and 're-run to
                 completion' to see the results of a code change. An IDE or build tool like Gradle makes this pretty easy
                 *if you have already installed and configured these tools*. Alternatively, with no additional tools
