@@ -10,14 +10,14 @@ Overall, a prototypical "hello world" program is just too hard compared to other
  
 🚀 `jshell` to the rescue!
 
-This project showcases a simple setup for using `jshell` with a few libraries (including [Jackson](https://github.com/FasterXML/jackson))
-and with a small set of application source code files. `jshell` is awesome!
+`jshell` removes all of those requirements and enables a beginner programmer to start learning and exploring Java
+without all the fuss! Start with the `basic/` sub-project (NOT YET IMPLEMENTED).
 
 ### Learn about `jshell`
 
 The JDK Enhancement Proposal that introduced `jshell` is the best place to learn the "what" and "why" about it: <http://openjdk.java.net/jeps/222>.
 
-To learn the "how", see <https://docs.oracle.com/en/java/javase/14/jshell/introduction-jshell.html#GUID-630F27C8-1195-4989-9F6B-2C51D46F52C8>.
+To learn the "how", see the [*Introduction to JShell* article](https://docs.oracle.com/en/java/javase/14/jshell/introduction-jshell.html#GUID-630F27C8-1195-4989-9F6B-2C51D46F52C8).
 
 Some highlights from the JEP page include:
 
@@ -29,15 +29,45 @@ Some highlights from the JEP page include:
 
 > Exploration of coding options is also important for developers prototyping code or investigating a new API. Interactive evaluation is vastly more efficient in this regard than edit/compile/execute and System.out.println.
 
-### Instructions
+## Standalone sub-projects
 
-NOTE: this was developed on macOS.
+This repository illustrates different concepts, patterns and examples via standalone sub-projects. Each sub-project is
+completely independent of the others and do not depend on the root project. This _standalone sub-project constraint_
+forces the sub-projects to be complete and maximizes the reader's chances of successfully running, understanding, and
+re-using the code.
 
-1. Use Java 15
-1. Execute `./build.sh` to compile the source code 
-1. Execute `./run-main.sh` to run the program (i.e. the `main` method). But... this isn't what we really want. We want
-   to use `jshell`! See the next step.
-1. Execute `./run-jshell.sh` to start a `jshell` session which loads the library and application source code
-1. The `jshell` session will be pre-loaded with some convenience imports so you can get busy experimenting with `ObjectMapper`
-   and the custom classes `PointPojo` and `PointRecord`. For example, see a screenshot of an interactive session below:
-![jshell example interactive session](example-session.png)   
+The sub-projects include:
+
+### `basic/`
+
+NOT YET IMPLEMENTED
+
+This sub-project showcases the simplest setup possible for using `jshell`. It is beginner friendly!
+
+See the README in [basic/](with-libraries/).
+
+### `with-libraries`
+
+This sub-project is similar to the `basic/` sub-project buts adds a few external Java libraries (including [Jackson](https://github.com/FasterXML/jackson)).
+
+See the README in [with-libraries/](with-libraries/).
+
+### `with-gradle`
+
+NOT YET IMPLEMENTED
+
+This sub-project showcases an idiomatic Gradle-based Java project that is extended with a custom Gradle plugin that helps
+you run `jshell` with the project's source code and library dependencies.
+
+See the README in [with-gradle/](with-gradle/).
+
+## WishList
+
+General clean-ups, TODOs and things I wish to implement for this project:
+
+* Implement `basic/`
+* Implement `with-gradle/`. It should be taken directly from <https://github.com/dgroomes/gradle-playground/tree/main/plugin>.
+* Can the `basic` and `with-libraries` sub-projects be define as Gradle "included builds"? To be clerr, they are not
+  Gradle projects but to get the convenience of "Clone a repo and open it in the IDE" I want to technically define them
+  as Gradle projects using the root `build.gradle.kts` (does not exist yet). I'm not sure how to re-defined the path to the
+  "source sets" (i.e `src/` instead of the traditional Maven/Gradle `src/main/java/`).
