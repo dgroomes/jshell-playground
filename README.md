@@ -40,11 +40,9 @@ The sub-projects include:
 
 ### `basic/`
 
-NOT YET IMPLEMENTED
-
 This sub-project showcases the simplest setup possible for using `jshell`. It is beginner friendly!
 
-See the README in [basic/](with-libraries/).
+See the README in [basic/](basic/).
 
 ### `with-libraries`
 
@@ -65,7 +63,8 @@ See the README in [with-gradle/](with-gradle/).
 
 General clean-ups, TODOs and things I wish to implement for this project:
 
-* Implement `basic/`
+* DONE Implement `basic/`
+* Can we execute jshell without compiling the program source code? Similar to the single-file source code support?
 * Implement `with-gradle/`. It should be taken directly from <https://github.com/dgroomes/gradle-playground/tree/main/plugin>.
 * Can the `basic` and `with-libraries` sub-projects be define as Gradle "included builds"? To be clerr, they are not
   Gradle projects but to get the convenience of "Clone a repo and open it in the IDE" I want to technically define them

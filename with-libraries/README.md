@@ -14,9 +14,9 @@ Note: this project was developed on macOS.
 1. Explore!
     * The `jshell` session will be pre-loaded with some convenience imports so you can get busy experimenting with `ObjectMapper`
       and the custom classes `PointPojo` and `PointRecord`.
-    * For example, trying `new`-ing up an instance of `ObjectMapper`:
+    * For example, try `new`-ing up an instance of `ObjectMapper`:
       * `var mapper = new ObjectMapper()`
-    * Then, try de-serializing the JSON string stored in the `POINT_JSON` variable into an instance of `PointPojo`. Do so with:
+    * Then, try de-serializing the JSON string stored in the `POINT_JSON` variable into an instance of `PointPojo`:
       * `mapper.readValue(POINT_JSON, PointPojo.class)`
     * Below is a screenshot of an example interactive session:
       ![jshell example interactive session](example-session.png)
