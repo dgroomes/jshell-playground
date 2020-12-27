@@ -7,11 +7,6 @@ package dgroomes;
  */
 public class Main {
 
-    public static String HELLO_MESSAGE_TEMPLATE = """
-            Hello,
-            %s!
-            """;
-
     public static void main(String[] args) {
         System.out.println("""
                 Here is a typical example of writing exploratory code inside of a `public static void main` method. In
@@ -24,14 +19,7 @@ public class Main {
                 README for more information.
                 """);
 
-        sayHello("Java programmer");
+        MessageUtil.sayHello("Java programmer");
     }
 
-    /**
-     * Print a friendly hello message.
-     * @param name the name that the message will address
-     */
-    public static void sayHello(String name) {
-        System.out.printf(HELLO_MESSAGE_TEMPLATE, name);
-    }
 }
