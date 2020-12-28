@@ -52,8 +52,6 @@ See the README in [with-libraries/](with-libraries/).
 
 ### `with-gradle`
 
-NOT YET IMPLEMENTED
-
 This sub-project showcases an idiomatic Gradle-based Java project that is extended with a custom Gradle plugin that helps
 you run `jshell` with the project's source code and library dependencies.
 
@@ -65,8 +63,9 @@ General clean-ups, TODOs and things I wish to implement for this project:
 
 * DONE Implement `basic/`
 * SKIPPED (no, not possible) Can we execute jshell without compiling the program source code? Similar to the single-file source code support?
-* Implement `with-gradle/`. It should be taken directly from <https://github.com/dgroomes/gradle-playground/tree/main/plugin>.
+* DONE Implement `with-gradle/`. It should be taken directly from <https://github.com/dgroomes/gradle-playground/tree/main/plugin>.
 * Can the `basic` and `with-libraries` sub-projects be define as Gradle "included builds"? To be clerr, they are not
   Gradle projects but to get the convenience of "Clone a repo and open it in the IDE" I want to technically define them
   as Gradle projects using the root `build.gradle.kts` (does not exist yet). I'm not sure how to re-defined the path to the
   "source sets" (i.e `src/` instead of the traditional Maven/Gradle `src/main/java/`).
+* Use the name "JShell" where appropriate instead of `jshell`

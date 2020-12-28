@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Load the library and application source code into a jshell session.
-# NOTE: this is awesome.
+# Start a jshell session that's loaded with the project's source code and library dependencies.
+# NOTE: jshell is awesome.
 
 jshell \
   --feedback verbose \
