@@ -49,7 +49,7 @@ you run a `jshell` session with the project's source code and library dependenci
 
 General clean-ups, TODOs and things I wish to implement for this project:
 
-* Define the "build" task depends-on relationship with "listDependencies" in the plugin code itself instead of the project
+* DONE Define the "build" task depends-on relationship with "listDependencies" in the plugin code itself instead of the project
   Gradle file.
 
 ## Referenced material

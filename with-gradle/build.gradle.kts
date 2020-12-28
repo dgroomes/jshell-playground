@@ -19,8 +19,3 @@ dependencies {
 application {
     mainClass.set("dgroomes.Main")
 }
-
-val build by tasks.getting
-val listDependencies by tasks.getting
-
-build.dependsOn(listDependencies)
