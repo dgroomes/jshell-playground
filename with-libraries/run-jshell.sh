@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Start a jshell session that's loaded with the project's source code and library dependencies.
-# NOTE: jshell is awesome.
+# NOTE: JShell is awesome.
 
 jshell \
   --feedback normal \
