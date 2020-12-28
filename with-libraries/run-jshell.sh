@@ -3,7 +3,7 @@
 # NOTE: jshell is awesome.
 
 jshell \
-  --feedback verbose \
+  --feedback normal \
   --startup DEFAULT --startup setup-snippets.jsh \
   --class-path 'out:lib/*' \
   --enable-preview

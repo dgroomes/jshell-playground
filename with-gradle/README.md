@@ -1,20 +1,26 @@
 # with-gradle
 
 This sub-project showcases an idiomatic Gradle-based Java project that is extended with a custom Gradle plugin that helps
-you run `jshell` with the project's source code and library dependencies.
+you run a `jshell` session with the project's source code and library dependencies.
 
 ## Instructions
 
 * Use Java 15
-* Build and run the program with `./gradlew run`
-* Alternatively, load the program source code and library dependencies into a `jshell` session!
+* Build and run the program with `./gradlew run`.  But... this isn't what we are really interested in. We want to use
+  JShell! See the next step.
+* Load the program source code and library dependencies into a `jshell` session!
   1. Build the program and start a jshell session with `./jshell.sh`
      * Notice the generated file `build/runtime-dependencies.txt`. Thanks Gradle!
-  1. Explore the code! Enter the following commands and pay attention to the jshell session output:
-     * `import static dgroomes.BytesPrettyPrinter.humanReadable`
-     * `humanReadable(1000)`
-     * `humanReadable(1024)`
-     * `humanReadable(2000)`
+  1. Explore!
+     * For example, execute an `import` statement:
+       * `import static dgroomes.BytesPrettyPrinter.humanReadable`
+     * Then try out the `humanReadable` method:
+       * `humanReadable(1000)`
+       * Pay close attention to the output in your `jshell` session! 
+     * Try passing a different value:
+       * `humanReadable(1024)`
+     * Try yet another value:
+       * `humanReadable(2000)`
      * Altogether, it will look like this:
        ```
         ./jshell.sh
