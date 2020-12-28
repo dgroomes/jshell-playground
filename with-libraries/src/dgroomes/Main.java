@@ -30,7 +30,7 @@ public class Main {
                 completion' to see the results of a code change. An IDE or build tool like Gradle makes this pretty easy
                 *if you have already installed and configured these tools*. Alternatively, with no additional tools
                 beyond the JDK, we can get a fast-feedback development cycle with a Read-Evaluate-Print-Loop courtesy of
-                jshell, the Java shell. This is perfect for absolute beginners where time is of the essence to build up
+                JShell, the Java shell. This is perfect for absolute beginners where time is of the essence to build up
                 their confidence and interest in the language. See the README.md for more information.
                 """);
 
