@@ -21,5 +21,4 @@ public class Main {
 
         MessageUtil.sayHello("Java programmer");
     }
-
 }
