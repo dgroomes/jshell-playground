@@ -57,6 +57,12 @@ you run a `jshell` session with the project's source code and library dependenci
 
 See the README in [with-gradle/](with-gradle/).
 
+### `api`
+
+This sub-project explores the JShell *API* (as compared to the JShell tool: `jshell`).
+
+See the README in [api/](api/).
+
 ## WishList
 
 General clean-ups, TODOs and things I wish to implement for this project:
