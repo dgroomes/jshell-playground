@@ -3,11 +3,6 @@ plugins {
     application
 }
 
-repositories {
-    mavenLocal()
-    jcenter()
-}
-
 val slf4jVersion = "1.7.30" // releases: http://www.slf4j.org/news.html
 
 dependencies {
@@ -16,5 +11,5 @@ dependencies {
 }
 
 application {
-    mainClass.set("dgroomes.Main")
+    mainClass.set("dgroomes.RunnerMain")
 }
