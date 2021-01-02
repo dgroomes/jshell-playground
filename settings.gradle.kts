@@ -25,4 +25,4 @@ rootProject.name = "gradle-playground"
 includeBuild("with-gradle")
 include("basic")
 include("with-libraries")
-include("api")
+includeBuild("api")

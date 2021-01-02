@@ -5,14 +5,23 @@ This sub-project explores the JShell *API* (as compared to the JShell tool: `jsh
 I'm doing this in the hopes that I can integrate it into Intellij via an Intellji plugin or hack on the JShell integration
 that already exists in the Intellij Platform.
 
+## Design
+
+This project is implemented in two sub-projects:
+
+* `runner/`. This sub-project contains the `public static void main` method to instantiate a JShell session and handle
+  the main event loop: 1) read input 2) execute
+* `subject/`. This sub-project contains our "subject" code, meaning the code we want to experiment with. In a normal
+  project, this would be our application and library code. NOT YET IMPLEMENTED  
+
 ## Instructions
 
-* Build the program with `./gradlew installDist`
-* Run it with `build/install/api/bin/api`
+* Build the program with `./gradlew runner:installDist`
+* Run it with `runner/build/install/runner/bin/runner`
 * Tip: for a conveniently fast "develop and run" experience try aliasing the build and run commands together:
-  * `alias doit="./gradlew installDist && build/install/api/bin/api"`
+  * `alias doit="./gradlew runner:installDist && runner/build/install/runner/bin/runner"`
   * `doit`
-  * Make a code chage.
+  * Make a code change.
   * `doit`
   * Etc.
 
