@@ -1,6 +1,6 @@
 # basic
 
-This sub-project shows how to start a `jshell` (the JShell command-line tool) session with your own application source code. It is beginner friendly!
+This sub-project shows how to start a `jshell` (the JShell command-line tool) session that's loaded with your own application source code. It is beginner friendly!
 
 ### Instructions
 

@@ -2,7 +2,7 @@
 
 📚 Learning and exploring JShell—the official Java shell and read-eval-print loop (REPL).
 
----
+### Motivation
 
 Java is infamously awkward to get up and running with for beginner programmers. `public static void main(String[] args)`... really?
 And the `main` method must be wrapped in a class. And the compile and run steps must be in separate commands (until [JEP-330](https://openjdk.java.net/jeps/330) anyway).
@@ -11,7 +11,11 @@ Overall, a prototypical "hello world" program is just too hard compared to other
 🚀 JShell to the rescue!
 
 JShell removes all of those requirements and enables a beginner programmer to start learning and exploring Java
-without all the fuss! Start with the `basic/` sub-project.
+without all the fuss! This project is my attempt to learn about JShell and share my findings.
+
+### Quick start
+
+Start with the [basic/](basic/) sub-project.
 
 ### Learn about JShell
 
@@ -40,24 +44,24 @@ The sub-projects include:
 
 ### `basic/`
 
-This sub-project shows how to start a `jshell` (the JShell command-line tool) session with your own application source code. It is beginner friendly!
+This sub-project shows how to start a `jshell` (the JShell command-line tool) session that's loaded with your own application source code. It is beginner friendly!
 
 See the README in [basic/](basic/).
 
-### `with-libraries`
+### `with-libraries/`
 
 This sub-project is similar to `basic/` buts adds a few external Java libraries (including [Jackson](https://github.com/FasterXML/jackson)).
 
 See the README in [with-libraries/](with-libraries/).
 
-### `with-gradle`
+### `with-gradle/`
 
 This sub-project showcases an idiomatic Gradle-based Java project that is extended with a custom Gradle plugin that helps
 you run a `jshell` session with the project's source code and library dependencies.
 
 See the README in [with-gradle/](with-gradle/).
 
-### `api`
+### `api/`
 
 This sub-project explores the JShell *API* (as compared to the JShell tool: `jshell`).
 
