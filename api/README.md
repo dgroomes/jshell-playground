@@ -14,15 +14,25 @@ This project is implemented in two sub-projects:
 * `subject/`. This sub-project contains our "subject" code, meaning the code we want to experiment with. In a normal
   project, this would be our application and library code. NOT YET IMPLEMENTED  
 
+This gets a little confusing because there are so many Java processes (and likewise so many Java class paths) flying around
+in the mix:
+
+1. The Java process that runs Gradle
+1. The Java process that runs `runner/`
+1. The Java process that is created for the JShell process by `runner/`
+
 ## Instructions
 
-* Build the program with `./gradlew runner:installDist`
-* Run it with `runner/build/install/runner/bin/runner`
+* Build the `subject/` project with `./gradlew subject:installDist`
+* Build the `runner/` program with `./gradlew runner:installDist`
+* Run it with `runner/build/install/runner/bin/runner custom`
+* Alternatively, use "tool" instead of "custom":
+  * `runner/build/install/runner/bin/runner tool`
 * Tip: for a conveniently fast "develop and run" experience try aliasing the build and run commands together:
-  * `alias doit="./gradlew runner:installDist && runner/build/install/runner/bin/runner"`
-  * `doit`
+  * `alias doit="./gradlew subject:installDist runner:installDist && runner/build/install/runner/bin/runner"`
+  * `doit custom`
   * Make a code change.
-  * `doit`
+  * `doit custom`
   * Etc.
 
 ### Reference materials
