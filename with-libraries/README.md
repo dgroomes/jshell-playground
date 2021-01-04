@@ -68,3 +68,8 @@ Note: this project was developed on macOS.
       
       jshell>
       ```
+
+### Programmatically starting the JShell tool
+
+The JShell tool can be started programmatically from Java code instead of from the `jshell` executable. To do this, follow
+the instructions listed above but instead of `./run-jshell.sh` use `./run-jshell-programmatically.sh`.

@@ -9,7 +9,8 @@ set -e
 
 opts=(
 --feedback normal
---startup DEFAULT --startup setup-snippets.jsh
+--startup DEFAULT
+--startup setup-snippets.jsh
 --class-path 'out:lib/*'
 --enable-preview
 )
