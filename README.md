@@ -63,7 +63,7 @@ See the README in [with-gradle/](with-gradle/).
 
 ### `api/`
 
-This sub-project explores the JShell *API* (as compared to the JShell tool: `jshell`).
+This sub-project explores the JShell API by implementing a custom event loop.
 
 See the README in [api/](api/).
 

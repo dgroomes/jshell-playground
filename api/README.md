@@ -1,9 +1,12 @@
 # api
 
-This sub-project explores the JShell *API* (as compared to the JShell *tool*: `jshell`).
+This sub-project explores the JShell API by implementing a custom event loop.
 
-I'm doing this in the hopes that I can integrate it into Intellij via an Intellij plugin or hack on the JShell integration
-that already exists in the Intellij Platform.
+Note: the JShell API is different than the JShell *tool*. The JShell tool is the REPL that is implemented with the JShell
+API. The JShell tool is usually invoked via the `jshell` executable but can be invoked programmatically via an API of
+its own (confusing, I know! I was spinning on this for a long time). With the JShell API, we can implement our own tooling.
+I'm learning about the API in the hopes that I can integrate it into Intellij via an Intellij plugin as a prototype or
+hack on the JShell integration that already exists in the Intellij Platform.
 
 ## Design
 
@@ -13,8 +16,8 @@ This project is implemented in two sub-projects:
   session. In a normal project, this would be our application and library code but in this project it is just a means to
   an end. 
 * `runner/`. This sub-project contains the `public static void main` method to instantiate a JShell session and
-  handle a custom event loop which continuously reads input and executes it in JShell. This sub-project is the is the
-  interesting part of the project. In it, we explore the JShell APIs in the `jdk.jshell` package.
+  handle a custom event loop which continuously reads input and executes it in JShell. This sub-project is the
+  interesting part of the project. In it, we explore the JShell APIs of the `jdk.jshell` package.
 
 ## Instructions
 
