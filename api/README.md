@@ -2,24 +2,19 @@
 
 This sub-project explores the JShell *API* (as compared to the JShell *tool*: `jshell`).
 
-I'm doing this in the hopes that I can integrate it into Intellij via an Intellji plugin or hack on the JShell integration
+I'm doing this in the hopes that I can integrate it into Intellij via an Intellij plugin or hack on the JShell integration
 that already exists in the Intellij Platform.
 
 ## Design
 
 This project is implemented in two sub-projects:
 
-* `runner/`. This sub-project contains the `public static void main` method to instantiate a JShell session and handle
-  the main event loop: 1) read input 2) execute
-* `subject/`. This sub-project contains our "subject" code, meaning the code we want to experiment with. In a normal
-  project, this would be our application and library code. NOT YET IMPLEMENTED  
-
-This gets a little confusing because there are so many Java processes (and likewise so many Java class paths) flying around
-in the mix:
-
-1. The Java process that runs Gradle
-1. The Java process that runs `runner/`
-1. The Java process that is created for the JShell process by `runner/`
+* `subject/`. This sub-project contains our "subject" code, meaning the code we want to experiment with via a JShell
+  session. In a normal project, this would be our application and library code but in this project it is just a means to
+  an end. 
+* `runner/`. This sub-project contains the `public static void main` method to instantiate a JShell session and
+  handle a custom event loop which continuously reads input and executes it in JShell. This sub-project is the is the
+  interesting part of the project. In it, we explore the JShell APIs in the `jdk.jshell` package.
 
 ## Instructions
 
