@@ -16,35 +16,44 @@ public class RunnerMain {
 
     private JShell jShell;
     private Console console;
-    private final String classpath;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        int numArgs = args.length;
+        if (numArgs != 1) {
+            throw new IllegalStateException("Exactly 1 argument was expected but found %d".formatted(numArgs));
+        }
+
         log.info("Exploring the JShell API!");
         var classPath = System.getProperty("java.class.path");
         log.info("The 'runner' program (client JVM) is running using java.class.path={}\n\n", classPath);
 
-        var classPathSubject = "/Users/davidgroomes/repos/personal/jshell-playground/api/subject/build/install/subject/lib/*"; // not implemented dynamically yet.
-        var main = new RunnerMain(classPathSubject);
-
-        main.runCustomLoop();
-    }
-
-    /**
-     * @param classpath the classpath that will be used for the remove JVM in the JShell session
-     */
-    public RunnerMain(String classpath) {
-        this.classpath = classpath;
+        var main = new RunnerMain();
+        var impl = args[0];
+        switch (impl) {
+            case "tool" -> main.runJShellTool();
+            case "custom" -> {
+                var classPathSubject = "/Users/davidgroomes/repos/personal/jshell-playground/api/subject/build/install/subject/lib/*"; // not implemented dynamically yet.
+                main.runCustomLoop(classPathSubject);
+            }
+            default -> throw new IllegalArgumentException("Unknown option: '%s'".formatted(impl));
+        }
     }
 
     /**
      * Continuously read Java code snippets from the console and execute them in JShell. This is a so-called "custom loop"
      * because it is an alternative implementation of the JShell *tool*'s own Read-Evaluate-Print-Loop (REPL).
-     *
+     * <p>
      * Why make a custom loop? Because I want to eventually integrate a custom loop into an Intellij plugin which has
      * different input/output needs than the JShell tool's REPL.
+     *
+     * @param classpath the classpath that will be used for the remote JVM in the JShell session
      */
-    private void runCustomLoop() {
+    private void runCustomLoop(String classpath) {
         console = System.console();
+        if (console == null) {
+            throw new IllegalStateException("No access to the console. This program must be run from the command line." +
+                    "Are you running from an IDE?");
+        }
         var builder = JShell.builder()
                 .remoteVMOptions("--class-path", classpath)
                 .compilerOptions("--class-path", classpath);
@@ -52,15 +61,32 @@ public class RunnerMain {
         try (JShell jShell = builder.build()) {
             this.jShell = jShell;
 
-            var classpath = jShell.eval("""
+            var foundClasspath = jShell.eval("""
                     System.getProperty("java.class.path");""").get(0).value();
-            log.info("The JShell session (remote JVM) is executing with the class path: {}\n\n", classpath);
+            log.info("The JShell session (remote JVM) is executing with the class path: {}\n\n", foundClasspath);
 
             log.info("Enter Java code snippets below and they will be passed to a JShell session (remote JVM) and executed:");
             while (true) {
                 readAndEvaluate();
             }
         }
+    }
+
+    /**
+     * Run the JShell "tool" programmatically. This starts the JShell tool's own REPL.
+     * <p>
+     * In theory, this method should invoke the JShell tool in the same way that the command line executable "jshell"
+     * does it. THIS DOES NOT WORK because I can't figure out what's going on with the classpath. The JShell session is
+     * always giving me a "not found" kind of error when I try to import a Jackson class or the MainSubject class...
+     */
+    private void runJShellTool() throws Exception {
+        JavaShellToolBuilder builder = JavaShellToolBuilder.builder();
+        builder.run("--feedback",
+                "normal",
+                "--startup",
+                "DEFAULT",
+                "--class-path",
+                "/Users/davidgroomes/repos/personal/jshell-playground/api/subject/build/install/subject/lib/");
     }
 
     /**
