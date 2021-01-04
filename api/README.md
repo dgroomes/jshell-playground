@@ -1,6 +1,6 @@
 # api
 
-This sub-project explores the JShell *API* (as compared to the JShell tool: `jshell`).
+This sub-project explores the JShell *API* (as compared to the JShell *tool*: `jshell`).
 
 I'm doing this in the hopes that I can integrate it into Intellij via an Intellji plugin or hack on the JShell integration
 that already exists in the Intellij Platform.
