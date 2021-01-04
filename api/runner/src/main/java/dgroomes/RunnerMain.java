@@ -3,7 +3,6 @@ package dgroomes;
 import jdk.jshell.JShell;
 import jdk.jshell.Snippet;
 import jdk.jshell.SnippetEvent;
-import jdk.jshell.tool.JavaShellToolBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,22 +23,10 @@ public class RunnerMain {
     private Console console;
 
     public static void main(String[] args) throws Exception {
-        int numArgs = args.length;
-        if (numArgs != 1) {
-            throw new IllegalStateException("Exactly 1 argument was expected but found %d".formatted(numArgs));
-        }
-
-        log.info("Exploring the JShell API!");
-        var classPath = System.getProperty("java.class.path");
-        log.info("The 'runner' program (client JVM) is running using java.class.path={}\n\n", classPath);
+        log.info("Exploring the JShell API by implementing a custom event loop!");
 
         var main = new RunnerMain();
-        var impl = args[0];
-        switch (impl) {
-            case "tool" -> main.runJShellTool();
-            case "custom" -> main.runCustomLoop();
-            default -> throw new IllegalArgumentException("Unknown option: '%s'".formatted(impl));
-        }
+        main.runCustomLoop();
     }
 
     /**
@@ -63,25 +50,11 @@ public class RunnerMain {
         try (JShell jShell = builder.build()) {
             this.jShell = jShell;
 
-            var foundClassPath = jShell.eval("""
-                    System.getProperty("java.class.path");""").get(0).value();
-            log.info("The JShell session (remote JVM) is executing with the class path: {}\n\n", foundClassPath);
-
             log.info("Enter Java code snippets below and they will be passed to a JShell session (remote JVM) and executed:");
             while (true) {
                 readAndEvaluate();
             }
         }
-    }
-
-    /**
-     * Run the JShell "tool" programmatically. This starts the JShell tool's own REPL.
-     */
-    private void runJShellTool() throws Exception {
-        JavaShellToolBuilder builder = JavaShellToolBuilder.builder();
-        builder.run("--feedback", "normal",
-                "--startup", "DEFAULT",
-                "--class-path", buildClassPathString());
     }
 
     /**

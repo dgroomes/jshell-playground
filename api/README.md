@@ -20,14 +20,12 @@ This project is implemented in two sub-projects:
 
 * Build the `subject/` project with `./gradlew subject:installDist`
 * Build the `runner/` program with `./gradlew runner:installDist`
-* Run it with `runner/build/install/runner/bin/runner custom`
-* Alternatively, use "tool" instead of "custom":
-  * `runner/build/install/runner/bin/runner tool`
+* Run it with `runner/build/install/runner/bin/runner`
 * Tip: for a conveniently fast "develop and run" experience try aliasing the build and run commands together:
   * `alias doit="./gradlew subject:installDist runner:installDist && runner/build/install/runner/bin/runner"`
-  * `doit custom`
+  * `doit`
   * Make a code change.
-  * `doit custom`
+  * `doit`
   * Etc.
 
 ### Reference materials
