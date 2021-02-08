@@ -29,8 +29,7 @@ configure(listOf(basic, withLibraries)) {
     apply(plugin = "application")
 
     repositories {
-        mavenLocal()
-        jcenter()
+        mavenCentral()
     }
 
     java {
