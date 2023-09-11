@@ -1,41 +1,52 @@
 # api
 
-This sub-project explores the JShell API by implementing a custom event loop.
+This subproject explores the JShell API by implementing a custom event loop.
 
-Note: the JShell API is different than the JShell *tool*. The JShell tool is the REPL that is implemented using the
+Note: the JShell API is different from the JShell *tool*. The JShell tool is the REPL that is implemented using the
 building blocks of the JShell API. The JShell tool is usually invoked via the `jshell` executable but can be invoked
 programmatically via an API of its own (confusing, I know! I was spinning on this for a long time). With the JShell API,
 we can implement our own tooling. I'm learning about the API in the hopes that I can integrate it into Intellij via an Intellij
 plugin as a prototype or hack on the JShell integration that already exists in the Intellij Platform.
 
+
 ## Design
 
-This sub-project is implemented in two sub-projects of its own:
+This subproject is implemented in two subprojects of its own:
 
-* `subject/`. This sub-project contains our "subject" code, meaning the code we want to experiment with via a JShell
+* `subject/`. This subproject contains our "subject" code, meaning the code we want to experiment with via a JShell
   session. In a normal project, this would be our application and library code but in this project it is just a means to
   an end. 
-* `runner/`. This sub-project contains the `public static void main` method to instantiate a JShell session and
-  handle a custom event loop which continuously reads input and executes it in JShell. This sub-project is the
+* `runner/`. This subproject contains the `public static void main` method to instantiate a JShell session and
+  handle a custom event loop which continuously reads input and executes it in JShell. This subproject is the
   interesting part of the project. In it, we explore the JShell APIs of the `jdk.jshell` package.
+
 
 ## Instructions
 
-1. Build the projects:
-    * Build the `subject/` project with `./gradlew subject:installDist`
-    * Build the `runner/` program with `./gradlew runner:installDist`
-1. Run the runner project:
-    * `runner/build/install/runner/bin/runner`
-1. Explore!
-    * The JShell session is loaded with all of the source code of the `subject/` project and its library dependencies (in
+1. Use Java 17
+2. Build the projects:
+    * Build the `subject/` project with the following command.
+    * ```shell
+      ./gradlew subject:installDist
+      ```
+    * Build the `runner/` program with the following command.
+    * ```shell
+      ./gradlew runner:installDist
+      ```
+3. Run the runner project:
+    * ```shell
+      runner/build/install/runner/bin/runner
+      ```
+4. Explore!
+    * The JShell session is loaded with all the source code of the `subject/` project and its library dependencies (in
       this case, the Jackson serialization library).
     * For example, try importing and `new`-ing up an instance of `ObjectMapper`:
       * `import com.fasterxml.jackson.databind.ObjectMapper;`
-      * `var mapper = new ObjectMapper(); `
+      * `var mapper = new ObjectMapper();`
     * Then, deserialize the JSON string stored in the `POINT_JSON` variable into an instance of `PointPojo`:
       * `mapper.readValue(dgroomes.SubjectMain.POINT_JSON, dgroomes.PointPojo.class);`
     * Altogether, it will look like this:
-      ```
+      ```text
       runner/build/install/runner/bin/runner
       00:03:06 INFO RunnerMain - Exploring the JShell API by implementing a custom event loop!
       00:03:06 INFO RunnerMain - Enter Java code snippets below and they will be passed to a JShell session (remote JVM) and executed:
@@ -50,13 +61,21 @@ This sub-project is implemented in two sub-projects of its own:
     (i.e. `jshell`) gives a better user experience. But, it works!
 
 Tip: for a conveniently fast "develop and run" experience try aliasing the build and run commands together:
-* `alias doit="./gradlew subject:installDist runner:installDist && runner/build/install/runner/bin/runner"`
-* `doit`
-* Make a code change.
-* `doit`
+
+* ```shell
+  alias doit="./gradlew subject:installDist runner:installDist && runner/build/install/runner/bin/runner"
+  ```
+* ```shell
+  doit
+  ```
+* Stop the program. Make a code change. Build and start the program again with the same command. 
+* ```shell
+  doit
+  ```
 * Etc.
 
-### Reference materials
+
+## Reference
 
 * [Intellij bug: *JShell: "Use classpath of" doesn't work*](https://youtrack.jetbrains.com/issue/IDEA-176418)
 * [JavaDoc for the "jdk.shell: module](https://docs.oracle.com/en/java/javase/15/docs/api/jdk.jshell/jdk/jshell/package-summary.html)

@@ -6,5 +6,5 @@ javac \
   @sources.txt \
   --class-path "lib/*" \
   -d out \
-  --release 15 \
+  --release 17 \
   --enable-preview

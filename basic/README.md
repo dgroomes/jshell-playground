@@ -1,28 +1,42 @@
 # basic
 
-This sub-project shows how to start a `jshell` (the JShell command-line tool) session that's loaded with your own application source code. It is beginner friendly!
+This subproject shows how to start a `jshell` (the JShell command-line tool) session that's loaded with your own application source code. It is beginner-friendly!
 
-### Instructions
 
-Note: this project was developed on macOS.
+## Instructions
 
-1. Use Java 15
-1. Execute `./build.sh` to compile the source code
-1. Execute `./run-main.sh` to run the program (i.e. the `public static void main` method). But... this isn't what we are
-   really interested in. We want to use JShell! See the next step.
-1. Execute `./run-jshell.sh` to start a `jshell` session which loads the application source code
-1. Explore!
-    * For example, execute the `sayHello` method:
+**NOTE**: This project was developed on macOS for my own personal use. Your mileage may vary.
+
+Follow these instructions to build and run the program via a normal entrypoint and via `jshell`. 
+
+1. Use Java 17
+2. Compile the source code
+   * ```shell
+     ./build.sh 
+     ```
+3. Run the program
+   * ```shell
+     ./run-main.sh
+     ```
+   * This runs the program from a normal `public static void main` method entrypoint. But... this isn't what we are
+     really interested in. We want to use JShell! See the next step.
+4. Start a `jshell` session which loads the application source code
+   * ```shell
+     ./run-jshell.sh
+     ```
+5. Explore!
+    * For example, execute the `sayHello` method.
       * `dgroomes.MessageUtil.sayHello("me")`
     * Import the `sayHello` method:
       * `import static dgroomes.MessageUtil.sayHello`
     * Execute the `sayHello` method again but without the fully qualified name (thanks to the import):         
       * `sayHello("you")`
+    * When you're done, exit the `jshell` session with `/exit`
     * Altogether, it will look like this:
-      ```
+      ```text
       ./build.sh
       ./run-jshell.sh
-      |  Welcome to JShell -- Version 15.0.1
+      |  Welcome to JShell -- Version 17.0.7
       |  For an introduction type: /help intro
       
       jshell> dgroomes.MessageUtil.sayHello("me")
@@ -35,5 +49,7 @@ Note: this project was developed on macOS.
       Hello,
       you!
       
+      jshell> /exit
+      |  Goodbye
       jshell>
       ```

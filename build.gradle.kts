@@ -8,9 +8,9 @@ plugins {
   extensive note in the file `settings.gradle.kts` for more information. This Gradle file is not meant to be used as an
   example.
 
-  This build file will define the sub-projects `basic/` and 'with-libraries/` as Gradle projects so that Intellij will
+  This build file will define the subprojects `basic/` and 'with-libraries/` as Gradle projects so that Intellij will
   automatically recognize the source code, recognize the library dependencies and provide a working "click
-  the green play button to execute the program" experience. But, importantly, these sub-projects still work as standalone
+  the green play button to execute the program" experience. But, importantly, these subprojects still work as standalone
   projects without Gradle. Read their individual README files for instructions on running them (no Gradle involved).
 
   A good test for validating that this Gradle configuration works is to actually execute the main programs. Try it with:
