@@ -1,5 +1,4 @@
 plugins {
-    java
     application
 }
 
@@ -11,4 +10,13 @@ java {
 
 application {
     mainClass.set("dgroomes.RunnerMain")
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(libs.slf4j.api)
+    runtimeOnly(libs.slf4j.simple)
 }

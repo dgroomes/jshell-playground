@@ -14,6 +14,9 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Please see the README for more information.
+ */
 public class RunnerMain {
 
     private static final Logger log = LoggerFactory.getLogger(RunnerMain.class);

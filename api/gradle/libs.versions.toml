@@ -1,0 +1,10 @@
+[versions]
+slf4j = "2.0.9" # SLF4J releases: http://www.slf4j.org/news.html
+jackson = "2.15.2" # Jackson releases: https://github.com/FasterXML/jackson/wiki/Jackson-Releases
+
+
+[libraries]
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+
