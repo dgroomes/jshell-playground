@@ -8,7 +8,7 @@ plugins {
   extensive note in the file `settings.gradle.kts` for more information. This Gradle file is not meant to be used as an
   example.
 
-  This build file will define the subprojects `basic/` and 'with-libraries/` as Gradle projects so that Intellij will
+  This build file will define the subprojects `basic/` and `with-libraries/` as Gradle projects so that Intellij will
   automatically recognize the source code, recognize the library dependencies and provide a working "click
   the green play button to execute the program" experience. But, importantly, these subprojects still work as standalone
   projects without Gradle. Read their individual README files for instructions on running them (no Gradle involved).
@@ -34,7 +34,7 @@ configure(listOf(basic, withLibraries)) {
 
     java {
         toolchain {
-            languageVersion.set(JavaLanguageVersion.of(15))
+            languageVersion.set(JavaLanguageVersion.of(17))
         }
     }
 
@@ -51,22 +51,7 @@ configure(listOf(basic, withLibraries)) {
     }
 }
 
-/**
- * The "with-libraries" project uses preview features so we have to tell Gradle to enable preview features.
- */
 configure(listOf(withLibraries)) {
-
-    tasks {
-        withType<JavaCompile> {
-            options.compilerArgs.addAll(listOf("--enable-preview", "--enable-preview", "--release", "15"))
-        }
-        withType<Test> {
-            jvmArgs("--enable-preview")
-        }
-        withType<JavaExec> {
-            jvmArgs("--enable-preview")
-        }
-    }
 
     dependencies {
         implementation(fileTree("lib"))
