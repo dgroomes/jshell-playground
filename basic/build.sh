@@ -9,7 +9,4 @@
 # Now, the program can be executed via it's main method or it can be loaded into jshell. See the README for more information.
 
 find src -name "*.java" > sources.txt
-javac \
-  @sources.txt \
-  -d out \
-  --release 15
+javac @sources.txt -d out

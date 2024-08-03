@@ -1,6 +1,6 @@
 # basic
 
-This subproject shows how to start a `jshell` (the JShell command-line tool) session that's loaded with your own application source code. It is beginner-friendly!
+Start a `jshell` (the JShell command-line tool) session that's loaded with your own application source code. It is beginner-friendly!
 
 
 ## Instructions
@@ -9,7 +9,7 @@ This subproject shows how to start a `jshell` (the JShell command-line tool) ses
 
 Follow these instructions to build and run the program via a normal entrypoint and via `jshell`. 
 
-1. Use Java 17
+1. Pre-requisite: Java 21
 2. Compile the source code
    * ```shell
      ./build.sh 
@@ -26,9 +26,9 @@ Follow these instructions to build and run the program via a normal entrypoint a
      ```
 5. Explore!
     * For example, execute the `sayHello` method.
-      * `dgroomes.MessageUtil.sayHello("me")`
+      * `dgroomes.basic.MessageUtil.sayHello("me")`
     * Import the `sayHello` method:
-      * `import static dgroomes.MessageUtil.sayHello`
+      * `import static dgroomes.basic.MessageUtil.sayHello`
     * Execute the `sayHello` method again but without the fully qualified name (thanks to the import):         
       * `sayHello("you")`
     * When you're done, exit the `jshell` session with `/exit`
@@ -36,14 +36,14 @@ Follow these instructions to build and run the program via a normal entrypoint a
       ```text
       ./build.sh
       ./run-jshell.sh
-      |  Welcome to JShell -- Version 17.0.7
+      |  Welcome to JShell -- Version 21.0.3
       |  For an introduction type: /help intro
       
-      jshell> dgroomes.MessageUtil.sayHello("me")
+      jshell> dgroomes.basic.MessageUtil.sayHello("me")
       Hello,
       me!
       
-      jshell> import static dgroomes.MessageUtil.sayHello
+      jshell> import static dgroomes.basic.MessageUtil.sayHello
       
       jshell> sayHello("you")
       Hello,

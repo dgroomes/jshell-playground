@@ -49,7 +49,7 @@ The subprojects include:
 
 ### `basic/`
 
-This subproject shows how to start a `jshell` (the JShell command-line tool) session that's loaded with your own application source code. It is beginner-friendly!
+Start a `jshell` (the JShell command-line tool) session that's loaded with your own application source code. It is beginner-friendly!
 
 See the README in [basic/](basic/).
 

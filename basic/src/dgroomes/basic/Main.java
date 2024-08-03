@@ -1,4 +1,4 @@
-package dgroomes;
+package dgroomes.basic;
 
 /**
  * The class with the main method. Normally, this is the entry point for a project. But in this case, you should avoid

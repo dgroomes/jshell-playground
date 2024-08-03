@@ -1,4 +1,4 @@
-package dgroomes;
+package dgroomes.basic;
 
 /**
  * Simple Java code for printing a friendly "hello" message.
