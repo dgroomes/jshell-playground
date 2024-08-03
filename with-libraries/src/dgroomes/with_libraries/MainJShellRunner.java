@@ -1,4 +1,4 @@
-package dgroomes;
+package dgroomes.with_libraries;
 
 import jdk.jshell.tool.JavaShellToolBuilder;
 
@@ -24,7 +24,6 @@ public class MainJShellRunner {
         builder.run("--feedback", "normal",
                 "--startup", "DEFAULT",
                 "--startup", "setup-snippets.jsh",
-                "--class-path", classPath,
-                "--enable-preview");
+                "--class-path", classPath);
     }
 }

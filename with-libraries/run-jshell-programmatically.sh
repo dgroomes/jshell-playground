@@ -5,5 +5,4 @@ set -eu
 
 java \
   --class-path 'out' \
-  --enable-preview \
-  dgroomes/MainJShellRunner
+  dgroomes/with_libraries/MainJShellRunner

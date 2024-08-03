@@ -5,6 +5,4 @@ find src -name "*.java" > sources.txt
 javac \
   @sources.txt \
   --class-path "lib/*" \
-  -d out \
-  --release 17 \
-  --enable-preview
+  -d out

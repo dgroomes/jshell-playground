@@ -7,7 +7,7 @@ This subproject is similar to `basic/` buts adds a few external Java libraries (
 
 Follow these instructions to build the project and run `jshell`.
 
-1. Use Java 17
+1. Pre-requisite: Java 21
 2. Compile the source code
    * ```shell
      ./build.sh
@@ -43,23 +43,21 @@ Follow these instructions to build the project and run `jshell`.
    * When you're done, exit the `jshell` session with `/exit`
    * Altogether, it will look like this:
      ```text
-     ./build.sh
-     ./run-jshell.sh
-     |  Welcome to JShell -- Version 17.0.7
+     $ ./run-jshell.sh 
+     |  Welcome to JShell -- Version 21.0.3
      |  For an introduction type: /help intro
-
      
      jshell> var mapper = new ObjectMapper()
-     mapper ==> com.fasterxml.jackson.databind.ObjectMapper@20322d26
+     mapper ==> com.fasterxml.jackson.databind.ObjectMapper@6e4784bc
      
      jshell> mapper.readValue(POINT_JSON, PointPojo.class)
      $2 ==> PointPojo{x=1, y=2}
      
      jshell> mapper.readValue(POINT_JSON, PointRecord.class)
-     |  Exception com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `dgroomes.PointRecord` (no Creators, like default construct, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
-     at [Source: (String)"{
-     "x": 1,
-     "y": 2
+     |  Exception com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `dgroomes.with_libraries.PointRecord` (no Creators, like default construct, exist): cannot deserialize from Object value (no delegate- or property-based Creator)
+      at [Source: (String)"{
+        "x": 1,
+        "y": 2
      }
      "; line: 2, column: 4]
      |        at InvalidDefinitionException.from (InvalidDefinitionException.java:67)
@@ -74,8 +72,7 @@ Follow these instructions to build the project and run `jshell`.
      |        at (#3:1)
      
      jshell> var mapperWithParamNames = new ObjectMapper().registerModule(new ParameterNamesModule())
-     ...>
-     mapperWithParamNames ==> com.fasterxml.jackson.databind.ObjectMapper@797badd3
+     mapperWithParamNames ==> com.fasterxml.jackson.databind.ObjectMapper@10959ece
      
      jshell> mapperWithParamNames.readValue(POINT_JSON, PointRecord.class)
      $5 ==> PointRecord[x=1, y=2]

@@ -12,7 +12,6 @@ opts=(
 --startup DEFAULT
 --startup setup-snippets.jsh
 --class-path 'out:lib/*'
---enable-preview
 )
 
 if [[ "x$1" == "x--debug" ]]; then

@@ -1,7 +1,7 @@
-package dgroomes;
+package dgroomes.with_libraries;
 
 /**
- * The new and shiny Java 14/15 "Records" feature let's us replace the class defined in PointPojo.java with a more
+ * Java 16 "Records" let us replace the class defined in PointPojo.java with a more
  * concise source code file. Also, records give us `equals()`, `toString()`, and `hashCode()` for free!
  * <p>
  * Jackson *cannot* serialize/deserialize to this class out-of-the-box. It needs some extra configuration. Specifically,

@@ -1,11 +1,11 @@
-package dgroomes;
+package dgroomes.with_libraries;
 
 import java.util.Objects;
 
 /**
  * Plain Old Java Object (POJO): No setters or constructors; just public fields.
  *
- * Jackson is able to to serialize/deserialize to this class without any special configuration.
+ * Jackson is able to serialize/deserialize to this class without any special configuration.
  */
 public class PointPojo {
 

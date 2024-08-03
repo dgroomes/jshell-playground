@@ -3,5 +3,4 @@
 
 java \
   --class-path 'out:lib/*' \
-  --enable-preview \
-  dgroomes/Main
+  dgroomes/with_libraries/Main
