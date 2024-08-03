@@ -1,4 +1,4 @@
-rootProject.name = "gradle-playground"
+rootProject.name = "jshell-playground"
 
 // What is the point of defining a Gradle project in the root of this repository? After all, each of the subprojects
 // are independently runnable... What does it mean to "run the root project"?
