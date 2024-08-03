@@ -2,7 +2,8 @@
 
 📚 Learning and exploring JShell—the official Java shell and read-eval-print loop (REPL).
 
-## Motivation
+
+## Overview
 
 Java is infamously awkward to get up and running with for beginner programmers. `public static void main(String[] args)`... really?
 And the `main` method must be wrapped in a class. And the compile and run steps must be in separate commands (until [JEP-330](https://openjdk.java.net/jeps/330) anyway).
@@ -45,17 +46,20 @@ re-using the code.
 
 The subprojects include:
 
+
 ### `basic/`
 
 This subproject shows how to start a `jshell` (the JShell command-line tool) session that's loaded with your own application source code. It is beginner-friendly!
 
 See the README in [basic/](basic/).
 
+
 ### `with-libraries/`
 
 This subproject is similar to `basic/` buts adds a few external Java libraries (including [Jackson](https://github.com/FasterXML/jackson)).
 
 See the README in [with-libraries/](with-libraries/).
+
 
 ### `with-gradle/`
 
@@ -64,9 +68,10 @@ you run a `jshell` session with the project's source code and library dependenci
 
 See the README in [with-gradle/](with-gradle/).
 
+
 ### `api/`
 
-This subproject explores the JShell API by implementing a custom event loop.
+Explore the JShell API by implementing a custom event loop.
 
 See the README in [api/](api/).
 

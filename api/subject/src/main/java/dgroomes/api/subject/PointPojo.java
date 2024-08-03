@@ -1,4 +1,4 @@
-package dgroomes;
+package dgroomes.api.subject;
 
 import java.util.Objects;
 

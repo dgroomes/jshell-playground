@@ -1,4 +1,4 @@
-package dgroomes;
+package dgroomes.api.runner;
 
 import jdk.jshell.JShell;
 import jdk.jshell.Snippet;

@@ -1,6 +1,6 @@
 # api
 
-This subproject explores the JShell API by implementing a custom event loop.
+Explore the JShell API by implementing a custom event loop.
 
 Note: the JShell API is different from the JShell *tool*. The JShell tool is the REPL that is implemented using the
 building blocks of the JShell API. The JShell tool is usually invoked via the `jshell` executable but can be invoked
@@ -23,7 +23,7 @@ This subproject is implemented in two subprojects of its own:
 
 ## Instructions
 
-1. Use Java 17
+1. Pre-requisite: Java 21
 2. Build the projects:
     * Build the `subject/` project with the following command.
     * ```shell
@@ -44,35 +44,20 @@ This subproject is implemented in two subprojects of its own:
       * `import com.fasterxml.jackson.databind.ObjectMapper;`
       * `var mapper = new ObjectMapper();`
     * Then, deserialize the JSON string stored in the `POINT_JSON` variable into an instance of `PointPojo`:
-      * `mapper.readValue(dgroomes.SubjectMain.POINT_JSON, dgroomes.PointPojo.class);`
+      * `mapper.readValue(dgroomes.api.subject.SubjectMain.POINT_JSON, dgroomes.api.subject.PointPojo.class);`
     * Altogether, it will look like this:
       ```text
-      runner/build/install/runner/bin/runner
-      00:03:06 INFO RunnerMain - Exploring the JShell API by implementing a custom event loop!
-      00:03:06 INFO RunnerMain - Enter Java code snippets below and they will be passed to a JShell session (remote JVM) and executed:
+      13:21:37 INFO RunnerMain - Exploring the JShell API by implementing a custom event loop!
+      13:21:37 INFO RunnerMain - Enter Java code snippets below and they will be passed to a JShell session (remote JVM) and executed:
       import com.fasterxml.jackson.databind.ObjectMapper;
-      00:03:14 INFO RunnerMain - Snippet event: SnippetEvent(snippet=Snippet:ImportKey(ObjectMapper,SINGLE_TYPE_IMPORT_SUBKIND)#1-import com.fasterxml.jackson.databind.ObjectMapper;,previousStatus=NONEXISTENT,status=VALID,isSignatureChange=true,causeSnippetnull)
+      13:21:42 INFO RunnerMain - Snippet event: SnippetEvent(snippet=Snippet:ImportKey(ObjectMapper,SINGLE_TYPE_IMPORT_SUBKIND)#1-import com.fasterxml.jackson.databind.ObjectMapper;,previousStatus=NONEXISTENT,status=VALID,isSignatureChange=true,causeSnippetnull)
       var mapper = new ObjectMapper();
-      00:03:20 INFO RunnerMain - Snippet event: SnippetEvent(snippet=Snippet:VariableKey(mapper)#2-var mapper = new ObjectMapper(); ,previousStatus=NONEXISTENT,status=VALID,isSignatureChange=true,causeSnippetnullvalue=com.fasterxml.jackson.databind.ObjectMapper@27c20538)
-      mapper.readValue(dgroomes.SubjectMain.POINT_JSON, dgroomes.PointPojo.class);
-      00:03:24 INFO RunnerMain - Snippet event: SnippetEvent(snippet=Snippet:VariableKey($1)#3-mapper.readValue(dgroomes.SubjectMain.POINT_JSON, dgroomes.PointPojo.class);,previousStatus=NONEXISTENT,status=VALID,isSignatureChange=true,causeSnippetnullvalue=PointPojo{x=1, y=2})
+      13:21:46 INFO RunnerMain - Snippet event: SnippetEvent(snippet=Snippet:VariableKey(mapper)#2-var mapper = new ObjectMapper();,previousStatus=NONEXISTENT,status=VALID,isSignatureChange=true,causeSnippetnullvalue=com.fasterxml.jackson.databind.ObjectMapper@5119fb47)
+      mapper.readValue(dgroomes.api.subject.SubjectMain.POINT_JSON, dgroomes.api.subject.PointPojo.class);
+      13:21:50 INFO RunnerMain - Snippet event: SnippetEvent(snippet=Snippet:VariableKey($1)#3-mapper.readValue(dgroomes.api.subject.SubjectMain.POINT_JSON, dgroomes.api.subject.PointPojo.class);,previousStatus=NONEXISTENT,status=VALID,isSignatureChange=true,causeSnippetnullvalue=PointPojo{x=1, y=2})
       ```
     * It's not pretty because I have only implemented a naive event loop whereas the REPL implemented by the JShell *tool*
     (i.e. `jshell`) gives a better user experience. But, it works!
-
-Tip: for a conveniently fast "develop and run" experience try aliasing the build and run commands together:
-
-* ```shell
-  alias doit="./gradlew subject:installDist runner:installDist && runner/build/install/runner/bin/runner"
-  ```
-* ```shell
-  doit
-  ```
-* Stop the program. Make a code change. Build and start the program again with the same command. 
-* ```shell
-  doit
-  ```
-* Etc.
 
 
 ## Reference

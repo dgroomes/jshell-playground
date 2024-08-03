@@ -2,14 +2,8 @@ plugins {
     application
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
-
 application {
-    mainClass.set("dgroomes.RunnerMain")
+    mainClass.set("dgroomes.api.runner.RunnerMain")
 }
 
 repositories {
