@@ -8,7 +8,7 @@ you run a `jshell` session with the project's source code and library dependenci
 
 Follow these instructions to build the program distribution and run `jshell`.
 
-1. Use Java 17
+1. Pre-requisite: Java 21
 2. Build and run the program
    * ```shell
      ./gradlew run
@@ -22,7 +22,7 @@ Follow these instructions to build the program distribution and run `jshell`.
    * Notice the generated file `build/runtime-dependencies.txt`. Thanks, Gradle!
 4. Explore!
    * For example, execute an `import` statement in the `jshell` session.
-     * `import static dgroomes.BytesPrettyPrinter.humanReadable`
+     * `import static dgroomes.with_gradle.BytesPrettyPrinter.humanReadable`
    * Then try out the `humanReadable` method:
      * `humanReadable(1000)`
      * Pay close attention to the output in your `jshell` session! 
@@ -33,27 +33,27 @@ Follow these instructions to build the program distribution and run `jshell`.
    * When you're done, exit the `jshell` session with `/exit`
    * Altogether, it will look like this:
      ```text
-      ./build-and-run-in-jshell.sh
-      
-      BUILD SUCCESSFUL in 941ms
-      6 actionable tasks: 6 executed
-      |  Welcome to JShell -- Version 17.0.7
-      |  For an introduction type: /help intro
-      
-      jshell> import static dgroomes.BytesPrettyPrinter.humanReadable
-      
-      jshell> humanReadable(1000)
-      $2 ==> "less than 1 KiB"
-      
-      jshell> humanReadable(1024)
-      $3 ==> "1 KiB"
-      
-      jshell> humanReadable(2000)
-      $4 ==> "greater than 1 KiB"
-      
-      jshell> /exit
-      |  Goodbye
-      ```
+     $ ./build-and-run-in-jshell.sh
+     
+     BUILD SUCCESSFUL in 437ms
+     10 actionable tasks: 6 executed, 4 up-to-date
+     |  Welcome to JShell -- Version 21.0.3
+     |  For an introduction type: /help intro
+     
+     jshell> import static dgroomes.with_gradle.BytesPrettyPrinter.humanReadable
+     
+     jshell> humanReadable(1000)
+     $2 ==> "less than 1 KiB"
+     
+     jshell> humanReadable(1024)
+     $3 ==> "1 KiB"
+     
+     jshell> humanReadable(2000)
+     $4 ==> "greater than 1 KiB"
+     
+     jshell> /exit
+     |  Goodbye
+     ```
 
 
 ## Wish List

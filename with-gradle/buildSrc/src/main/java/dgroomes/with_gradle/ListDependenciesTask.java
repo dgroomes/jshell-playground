@@ -1,4 +1,4 @@
-package dgroomes;
+package dgroomes.with_gradle;
 
 import org.gradle.api.DefaultTask;
 import org.gradle.api.file.FileCollection;

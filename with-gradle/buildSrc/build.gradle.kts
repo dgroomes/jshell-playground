@@ -6,7 +6,7 @@ gradlePlugin {
     plugins {
         create("dependenciesListerPlugin") {
             id = "dgroomes.dependencies-lister"
-            implementationClass = "dgroomes.DependenciesListerPlugin"
+            implementationClass = "dgroomes.with_gradle.DependenciesListerPlugin"
         }
     }
 }

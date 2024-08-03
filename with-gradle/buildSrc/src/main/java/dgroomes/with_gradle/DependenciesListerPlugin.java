@@ -1,4 +1,4 @@
-package dgroomes;
+package dgroomes.with_gradle;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
