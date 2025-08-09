@@ -9,40 +9,50 @@ Follow these instructions to build the project and run `jshell`.
 
 1. Pre-requisite: Java 21
 2. Compile the source code
-   * ```shell
+   - ```shell
      ./build.sh
      ```
 3. Run the program
-   * ```shell
+   - ```shell
      ./run-main.sh
      ```
-   * This runs the program with a normal `public static void main` method entrypoint. But... this isn't what we are
+   - This runs the program with a normal `public static void main` method entrypoint. But... this isn't what we are
      really interested in. We want to use JShell! See the next steps where we load the program source code into a
-   * `jshell` session.
+     `jshell` session.
 4. Start a `jshell` session which loads the program and library source code
-   * ```shell
+   - ```shell
      ./run-jshell.sh
      ```
 5. Explore!
-   * The `jshell` session will be preloaded with some convenience imports, so you can get busy experimenting with `ObjectMapper`
+   - The `jshell` session will be preloaded with some convenience imports, so you can get busy experimenting with `ObjectMapper`
      and the custom classes `PointPojo` and `PointRecord`.
-   * For example, try `new`-ing up an instance of `ObjectMapper`:
-     * `var mapper = new ObjectMapper()`
-   * Then, deserialize the JSON string stored in the `POINT_JSON` variable into an instance of `PointPojo`:
-     * `mapper.readValue(POINT_JSON, PointPojo.class)`
-     * Pay close attention to the output in your `jshell` session!
-   * Next, try deserializing the same JSON string into an instance of `PointRecord` which makes use of the Java "Records"
+   - For example, try `new`-ing up an instance of `ObjectMapper` with the following command.
+   - ```text
+     var mapper = new ObjectMapper()
+     ```
+   - Then, deserialize the JSON string stored in the `POINT_JSON` variable into an instance of `PointPojo`.
+   - ```text
+     mapper.readValue(POINT_JSON, PointPojo.class)
+     ```
+   - Pay close attention to the output in your `jshell` session!
+   - Next, try deserializing the same JSON string into an instance of `PointRecord` which makes use of the Java "Records"
      feature (spoiler alert! it will throw an exception):
-     * `mapper.readValue(POINT_JSON, PointRecord.class)`
-   * That yield a serialization error. I think we need to use a specially-configured version of the `ObjectMapper` to be able to
-     deserialize into a class that uses the Java "Records" feature. Try this:
-     * `var mapperWithParamNames = new ObjectMapper().registerModule(new ParameterNamesModule())`
-   * Try to deserialize the JSON to `PointRecord` again but this time use the specialized `ObjectMapper`:
-     * `mapperWithParamNames.readValue(POINT_JSON, PointRecord.class)`
-     * It worked! We learned something about the Jackson library and did it in a REPL!
-   * When you're done, exit the `jshell` session with `/exit`
-   * Altogether, it will look like this:
-     ```text
+   - ```text
+     mapper.readValue(POINT_JSON, PointRecord.class)
+     ```
+   - That yields a serialization error. I think we need to use a specially-configured version of the `ObjectMapper` to be able to
+     deserialize into a class that uses the Java "Records" feature. Try the following.
+   - ```text
+     var mapperWithParamNames = new ObjectMapper().registerModule(new ParameterNamesModule())
+     ```
+   - Try to deserialize the JSON to `PointRecord` again but this time use the specialized `ObjectMapper`.
+   - ```text
+     mapperWithParamNames.readValue(POINT_JSON, PointRecord.class)
+     ```
+   - It worked! We learned something about the Jackson library and did it in a REPL!
+   - When you're done, exit the `jshell` session with `/exit`
+   - Altogether, it will look like the following.
+   - ```text
      $ ./run-jshell.sh 
      |  Welcome to JShell -- Version 21.0.3
      |  For an introduction type: /help intro
