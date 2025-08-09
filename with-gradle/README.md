@@ -10,29 +10,36 @@ Follow these instructions to build the program distribution and run `jshell`.
 
 1. Pre-requisite: Java 21
 2. Build and run the program
-   * ```shell
+   - ```shell
      ./gradlew run
      ```
-   * But... this isn't what we are really interested in. We want to use
-     JShell! See the next steps where we load the program source code and library dependencies into a `jshell` session.
+   - But... this isn't what we are really interested in. We want to use JShell! See the next steps where we load the program source code and library dependencies into a `jshell` session.
 3. Build the program distribution and start a `jshell` session with the program source code and library dependencies
-   * ```shell
+   - ```shell
      ./build-and-run-in-jshell.sh
      ```
-   * Notice the generated file `build/runtime-dependencies.txt`. Thanks, Gradle!
+   - Notice the generated file `build/runtime-dependencies.txt`. Thanks, Gradle!
 4. Explore!
-   * For example, execute an `import` statement in the `jshell` session.
-     * `import static dgroomes.with_gradle.BytesPrettyPrinter.humanReadable`
-   * Then try out the `humanReadable` method:
-     * `humanReadable(1000)`
-     * Pay close attention to the output in your `jshell` session! 
-   * Try passing a different value:
-     * `humanReadable(1024)`
-   * Try yet another value:
-     * `humanReadable(2000)`
-   * When you're done, exit the `jshell` session with `/exit`
-   * Altogether, it will look like this:
-     ```text
+   - For example, execute an `import` statement in the `jshell` session.
+   - ```text
+     import static dgroomes.with_gradle.BytesPrettyPrinter.humanReadable
+     ```
+   - Then try out the `humanReadable` method.
+   - ```text
+     humanReadable(1000)
+     ```
+   - Pay close attention to the output in your `jshell` session! 
+   - Try passing a different value:
+   - ```text
+     humanReadable(1024)
+     ```
+   - Try yet another value:
+   - ```text
+     humanReadable(2000)
+     ```
+   - When you're done, exit the `jshell` session with `/exit`
+   - Altogether, it will look like the following.
+   - ```text
      $ ./build-and-run-in-jshell.sh
      
      BUILD SUCCESSFUL in 437ms
@@ -60,14 +67,15 @@ Follow these instructions to build the program distribution and run `jshell`.
 
 General clean-ups, TODOs and things I wish to implement for this project:
 
-* [x] DONE Define the "build" task depends-on relationship with "listDependencies" in the plugin code itself instead of the project
+- [x] DONE Define the "build" task depends-on relationship with "listDependencies" in the plugin code itself instead of the project
   Gradle file.
+- [ ] Update the plugin code to be compatible with Gradle's configuration cache. I did this [here](https://github.com/dgroomes/rocksdb-playground/commit/5cbf6d29b14855e88262d2412066f2a9e03d7297).
 
 
 ## Reference
 
-* [Another project of mine: `gradle-playground`](https://github.com/dgroomes/gradle-playground/tree/main/plugin)
-* [Gradle docs: *Developing Custom Gradle Plugins*](https://docs.gradle.org/current/userguide/custom_plugins.html)
-* [Gradle docs: *Authoring Tasks*](https://docs.gradle.org/current/userguide/more_about_tasks.html)
-  * [*Task outcomes*](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:task_outcomes)
-  * [*Up-to-date checks (AKA Incremental Builds)*](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks)
+- [Another project of mine: `gradle-playground`](https://github.com/dgroomes/gradle-playground/tree/main/plugin)
+- [Gradle docs: *Developing Custom Gradle Plugins*](https://docs.gradle.org/current/userguide/custom_plugins.html)
+- [Gradle docs: *Authoring Tasks*](https://docs.gradle.org/current/userguide/more_about_tasks.html)
+  - [*Task outcomes*](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:task_outcomes)
+  - [*Up-to-date checks (AKA Incremental Builds)*](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks)
