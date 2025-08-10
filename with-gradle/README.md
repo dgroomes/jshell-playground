@@ -69,7 +69,7 @@ General clean-ups, TODOs and things I wish to implement for this project:
 
 - [x] DONE Define the "build" task depends-on relationship with "listDependencies" in the plugin code itself instead of the project
   Gradle file.
-- [ ] Update the plugin code to be compatible with Gradle's configuration cache. I did this [here](https://github.com/dgroomes/rocksdb-playground/commit/5cbf6d29b14855e88262d2412066f2a9e03d7297).
+- [x] DONE Update the plugin code to be compatible with Gradle's configuration cache. I did this [here](https://github.com/dgroomes/rocksdb-playground/commit/5cbf6d29b14855e88262d2412066f2a9e03d7297).
 
 
 ## Reference
